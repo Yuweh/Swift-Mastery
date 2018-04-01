@@ -3,9 +3,6 @@ Swift Skill Tree for iOS Mobile App Development
 
 Mastery in SWIFT takes thinking and practice of the language. Started in learning some basic constructs, then try to solve a problem with it, and finally, became engaged in project with it. 
 
-## ROADMAP
-![Header image](RoadmapProject/Script/Generated/ESSENTIALROADMAP.png)
-
 ## CONTENTS
 from BohdanOrlov/iOS-Developer-Roadmap
 Tapping on a link will take you to relevant materials.
@@ -230,3 +227,8 @@ Tapping on a link will take you to relevant materials.
             - [ ] Double-ended queue
         - [ ] `System design`
             - [ ] [Problems](Resources/iOS_Developer/Computer_Science_knowledge/System_design/Problems/RESOURCES.md)
+            
+## References 
+
+https://medium.com/@borlov/c9a24f413457
+https://github.com/BohdanOrlov/iOS-Developer-Roadmap
