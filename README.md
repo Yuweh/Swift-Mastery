@@ -1,4 +1,4 @@
-# Swift-Mastery
+## Swift-Mastery ⚔️ 
 Swift Skill Tree for iOS Mobile App Development
 
 Mastery in SWIFT takes thinking and practice of the language. Started in learning some basic constructs, then try to solve a problem with it, and finally, became engaged in project with it. 
