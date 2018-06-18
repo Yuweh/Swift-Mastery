@@ -6,22 +6,38 @@
 
 
 Swift Fundamentals for Intermediate
+
 Optionals
+
 Optional Chaining
+
 Guard and Defer
+
 Error Handling
+
 Type Casting 
+
 Extensions
+
 Subsrict
+
 Classes and Struct
+
 Generics
+
 Set and Tuples
+
 Ternary Operator
+
 Type Alias
 
 Special Topics
+
 Closures
 
 
+
+----
 Referrence -
-Bob the Developer
+
+### Bob the Developer
