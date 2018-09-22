@@ -12,3 +12,20 @@ func viewDidLoad() {
  */
 }
 
+
+//Computing for Screen Size
+
+/* 
+//With AutoLayout, computation goes like this
+
+X and Y are set (30 and 100)
+z is width of the screen
+a is height of the screen
+width = z-(x+x)
+height = a-(y+y)
+
+//With Alignment, Width(a) and Height(b) are set
+x= c/2 - b/2
+y= d/2 - a/2
+
+*/
