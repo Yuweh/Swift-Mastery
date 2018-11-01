@@ -77,17 +77,29 @@ class Piano: Instrument {
         return "Piano standard tuning for \(brand)."
     }
     
-    override func play(_ music: Music) -> String {
-        /* 6 override the inherited play(_:) method. And inside this method,
-         you use the super keyword this time to call the Instrument parent method
-         in order to get the music’s prepared notes and then play on the piano. */
-        let preparedNotes = super.play(music)
-        return "Piano playing \(preparedNotes)"
-    }
+    //*REPLACED by an overloaded method below:
+//    override func play(_ music: Music) -> String {
+//        /* 6 override the inherited play(_:) method. And inside this method,
+//         you use the super keyword this time to call the Instrument parent method
+//         in order to get the music’s prepared notes and then play on the piano. */
+//        let preparedNotes = super.play(music)
+//        return "Piano playing \(preparedNotes)"
+//    }
     
     override func play(_ music: Music) -> String {
         return play(music, usingPedals: hasPedals)
     }
+    
+    func play(_ music: Music, usingPedals: Bool) -> String {
+        let preparedNotes = super.play(music)
+        if hasPedals && usingPedals {
+            return "Play piano notes \(preparedNotes) with pedals."
+        }
+        else {
+            return "Play piano notes \(preparedNotes) without pedals."
+        }
+    }
+
 }
 
 //MARK: Instances
