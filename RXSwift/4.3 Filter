@@ -1,0 +1,24 @@
+import Foundation
+import RxSwift
+import PlaygroundSupport
+
+PlaygroundPage.current.needsIndefiniteExecution = true
+
+//disposeBag from memoy management
+let disposeBag = DisposeBag()
+
+/**/
+
+Observable.of("Jin", "Reika", "Cassey", "Fae", "Jay", "Jae")
+    .filter {
+        $0.starts(with: "J")
+    }
+    .subscribe(onNext: {
+        print($0)
+    })
+    .addDisposableTo(disposeBag)
+
+
+
+
+
