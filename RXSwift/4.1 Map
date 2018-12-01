@@ -1,0 +1,10 @@
+import Foundation
+import RxSwift
+import PlaygroundSupport
+
+PlaygroundPage.current.needsIndefiniteExecution = true
+
+//disposeBag from memoy management
+let disposeBag = DisposeBag()
+
+/**/
