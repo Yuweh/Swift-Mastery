@@ -1,0 +1,19 @@
+import Foundation
+import RxSwift
+import PlaygroundSupport
+
+PlaygroundPage.current.needsIndefiniteExecution = true
+
+//disposeBag from memoy management
+let disposeBag = DisposeBag()
+
+/**/
+
+let carMakes = Observable.of("Toyota", "Honda", "Mitsubishi", "Subaru")
+let carModels = Observable.of("Corolla", "Civic RS", "Evolution", "Impreza")
+
+Observable.zip(carMakes, carModels) {$0 + " " + $1}
+    .subscribe(onNext: {
+        print($0)
+    })
+    .disposed(by: disposeBag)
