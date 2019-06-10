@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-// Design Patters: Builder Pattern
+// Design Patterns: Builder Pattern
 
 //Models
 enum DishCategory: Int {
@@ -31,7 +31,6 @@ struct Order{
 }
 
 //Builder
-
 class OrderBuilder {
     private var order: Order?
     
@@ -87,7 +86,6 @@ class OrderBuilder {
 }
 
 // Usage
-
 let steak = Dish(name: "Steak", price: 2.30)
 let chips = Dish(name: "Chips", price: 1.20)
 let coffee = Dish(name: "Coffee", price: 0.80)
@@ -100,6 +98,9 @@ builder.setDrink(coffee)
 
 let order = builder.getResult()
 order?.price
+
+// Result:
+// 4.30
 
 
 
