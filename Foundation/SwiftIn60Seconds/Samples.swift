@@ -131,6 +131,10 @@ let colors = Set(["red", "green", "blue"])
 * Tuples
 
 /*
+
+You can add several, different values in a single value
+But cannot add or remove a value
+
 */
 // Example:
 
