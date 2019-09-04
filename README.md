@@ -7,7 +7,9 @@ Swift Skill Tree for iOS Mobile App Development
 Mastery in SWIFT takes time, thinking, and practice of the language. Started in learning some basic constructs, then try to solve a problem with it, and finally, became engaged in project with it. 
 
 
-CURRENT PROGRAM: <img src="https://github.com/ReactiveX/RxSwift/blob/master/assets/Rx_Logo_M.png" alt="Miss Electric Eel 2016" width="36" height="36"> RxSwift: ReactiveX for Swift
+CURRENT PROGRAM: PAUL HUDSON's Swift in Sixty Seconds 
+
+PREVIOUS CONCENTRATION: <img src="https://github.com/ReactiveX/RxSwift/blob/master/assets/Rx_Logo_M.png" alt="Miss Electric Eel 2016" width="36" height="36"> RxSwift: ReactiveX for Swift
 
 ## Recommended Resources
 
