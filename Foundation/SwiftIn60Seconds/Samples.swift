@@ -637,62 +637,503 @@ func doubleInPlace(number: inout Int) {
 //====================================================================================
 * Creating basic closures
 /*
+You can assign closures to variables, then call them later on.
+*/
+// Example:
+let driving = {
+ print("I'm driving in my car")
+}
+
+//====================================================================================
+* Accepting parameters in a closure
+/*
+Closures can accept parameters and return values, like regular functions.
+*/
+// Example:
+let driving = { (place: String) in
+               print("I'm going to \(place) in my car")
+              }
+
+//====================================================================================
+* Returning values from a closure
+/*
+Closures can accept parameters and return values, like regular functions.
 */
 // Example:
 
 
 //====================================================================================
-
-* Accepting parameters in a closure
-* Returning values from a closure
 * Closures as parameters
+/*
+
+You can pass closures into functions as parameters, and those
+closures can have parameters of their own and a return value
+*/
+// Example:
+func travel(action: () -> Void) {
+ print("I'm getting ready to go.")
+ action()
+ print("I arrived!")
+}
+
+//====================================================================================
 * Trailing closure syntax
+/*
+If the last parameter to your function is a closure,
+you can use trailing closure syntax.
+*/
+// Example:
+travel {
+ print("I'm driving in my car")
+}
+
+//====================================================================================
 * Using closures as parameters when they accept parameters
+/*
+
+You can pass closures into functions as parameters, and those
+closures can have parameters of their own and a return value
+*/
+// Example:
+
+
+//====================================================================================
 * Using closures as parameters when they return values
+/*
+
+You can pass closures into functions as parameters, and those
+closures can have parameters of their own and a return value
+*/
+// Example:
+
+
+//====================================================================================
 * Shorthand parameter names
+/*
+Swift automatically provides shorthand parameter names like $0 and $1,
+but not everyone uses them.
+*/
+// Example:
+travel {
+ "I'm going to \($0) in my car"
+}
+
+//====================================================================================
 * Closures with multiple parameters
+/*
+*/
+// Example:
+
+
+//====================================================================================
 * Returning closures from functions
+/*
+*/
+// Example:
+
+
+//====================================================================================
 * Capturing values
+/*
+If you use external values inside your closures, they will be captured
+so the closure can refer to them later.
+*/
+// Example:
+func travel() -> (String) -> Void {
+ var counter = 1
+ return {
+  print("\(counter). I'm going to \($0)")
+  counter += 1
+ }
+}
+
+//====================================================================================
  
 7 - Structs summary
 * Creating your own structs
+/*
+You can create your own types using structures, 
+which can have their own properties and methods.
+*/
+// Example:
+struct Sport {
+ var name: String
+}
+
+//====================================================================================
 * Computed properties
+/*
+You can use stored properties or use
+computed properties to calculate values on the fly.
+*/
+// Example:
+var olympicStatus: String {
+ if isOlympicSport {
+  return "\(name) is an Olympic sport"
+ } else {
+  return "\(name) is not an Olympic sport"
+ }
+
+//====================================================================================
 * Property observers
+/*
+*/
+// Example:
+
+
+//====================================================================================
 * Methods
+/*
+*/
+// Example:
+
+
+//====================================================================================
 * Mutating methods
+/*
+ If you want to change a propery inside a method,
+ you must mark it as mutating
+*/
+// Example:
+mutating func makeAnonymous() {
+ name = "Anonymous"
+}
+
+//====================================================================================
 * Properties and methods of strings
+/*
+*/
+// Example:
+
+
+//====================================================================================
 * Properties and methods of arrays
+/*
+*/
+// Example:
+
+
+//====================================================================================
 * Initializers
+/*
+ Initializers are special methods that create structs.
+ You get a memberwise initializer by default, but if you create your own
+ you must give all properties a value
+*/
+// Example:
+init() {
+ username = "Anonymous"
+ print("Creating a new user!")
+
+//====================================================================================
 * Referring to the current instance
+/*
+ Use the self constant to refer to the current instance of a struct inside a method
+*/
+// Example:
+init(name: String) {
+ print("\(name) was born!")
+ self.name = name
+}
+
+//====================================================================================
 * Lazy properties
+/*
+ The lazy keyword tells Swift to create properties only when they are first used.
+*/
+// Example:
+struct Person {
+ var name: String
+ lazy var familyTree = FamilyTree()
+}
+
+//====================================================================================
 * Static properties and methods
+/*
+ You can share properties and methods across all instances
+ of a struct using the static keyword
+*/
+// Example:
+struct Student {
+ static var classSize = 0
+ var name: String
+}
+
+//====================================================================================
 * Access control
+/*
+ Access control lets you restrict what code can use properties and methods
+*/
+// Example:
+struct Person {
+ private var id: String
+ init(id: String) {
+  self.id = id
+ }
+}
+
+//====================================================================================
  
 8 - Classes summary
+//====================================================================================
 * Creating your own classes
+/*
+ Classes and structs are similar, in that they can both let you create
+ your own types and with properties and methods.
+*/
+// Example:
+class Dog {
+ var name: String
+ init(name: String) {
+  self.name = name
+ }
+}
+
+
+//====================================================================================
 * Class inheritance
+/*
+ One class can inherit from another, and it gains all properties and methods of the parent class.
+ It's common to talk about class hierachies - one class based on another,
+ which itself is based on another.
+*/
+// Example:
+class Poodle: Dog {
+ init(name: String_ {
+  super.init(name: name)
+ }
+     }
+
+//====================================================================================
 * Overriding methods
+ /*
+ Method overriding lets a child class replace a method in its parent class
+ with a new implementation
+*/
+// Example:
+class Poodle: Dog {
+ override func makeNoise() {
+  print("Yip)
+       }
+ }
+
+//====================================================================================
 * Final classes
+/*
+ You can mark a class with the finaly keyword,
+ which stops other classes from inheriting from it.
+*/
+// Example:
+final class Dog {
+ var name: String
+ init(name: String) {
+  self.name = name
+ }
+}
+
+//====================================================================================
 * Copying objects
+/*
+ When two variables point at the same class instance,
+ they both point at the same piece of memory - 
+ changing one changes the other.
+*/
+// Example:
+var singerCopy = singer
+ singerCopy.name = "Justin Bieber"
+ print(singer.name)
+
+//====================================================================================
 * Deinitializers
+/*
+ Classes can have a deinitializer, which code that gets run
+ when an instance of the class is destroyed
+*/
+// Example:
+deinit {
+ print("\(name) is no more!")
+}
+
+//====================================================================================
 * Mutability
+/*
+ 
+ Classes don't enforce constants as strongly as structs -
+ if a property is declared as a variable, it can be changed.
+ regardless ofhow the class instance was created.
+ 
+*/
+// Example:
+class Singer {
+ var name = "Taylor Swift"
+}
+ let taylor = Singer()
+ taylor.name = "Ed Sheeran"
+
+//====================================================================================
  
 9 - Protocols and extensions summary
 * Protocols
+/*
+ Protocols describe what methods and properties a conforming type must have,
+ but don't provide the implementations of those methods.
+*/
+// Example:
+protocol Identifiable {
+ var id: String { get set }
+}
+
+//====================================================================================
 * Protocol inheritance
+/*
+ You can build protocols on top of other protocols,
+ similar to classes
+*/
+// Example:
+protocol Employee: Payable, HasVacation { }
+
+//====================================================================================
 * Extensions
+/*
+ Extensions let you add methods and computed properties to specific types such as Int.
+*/
+// Example:
+extension Int {
+ func squared() -> Int {
+  return self * self 
+ }
+}
+
+//====================================================================================
 * Protocol extensions
+/*
+ Protocol extensions let you add methods and computed properties to protocols
+*/
+// Example:
+extension Collection {
+ func summarize() {
+  print("There are \(count) of us:")
+  for name in self {
+   print(name)
+  }
+ }
+}
+
+//====================================================================================
 * Protocol-oriented programming
+/*
+ Protocol-oriented programming is the practice of designing your app architecture
+ as a series of protocols, then using protocol extensions to provide default method implementations
+*/
+// Example:
+extension Identifiable {
+ func identity() {
+  print("My ID is \(id).")
+ }
+}
 
-
+//====================================================================================
 10 - Optionals summary
 * Handling missing data
+/*
+ Optionals let us represent the absence of a value in a clear and umabiguous way.
+*/
+// Example:
+var age: Int? = nil
+ age = 38
+
+//====================================================================================
 * Unwrapping optionals
+/*
+ Swift won't let us use optionals without unwrapping them,
+ either using if let or using guard let.
+*/
+// Example:
+if let unwrapped = name {
+ print("\(unwrapped.count) letters")
+} else {
+ print("Missing name.)
+      }
+//====================================================================================
 * Unwrapping with guard
+/*
+*/
+// Example:
+
+//====================================================================================
 * Force unwrapping
+
+/*
+ You can force unwrap optionals with an exclamation mark,
+ but if you try to force unwrap nil your code will crash.
+*/
+// Example:
+let str = "5"
+ let num = Int(str)!
+
+//====================================================================================
 * Implicitly unwrapped optionals
+/*
+*/
+// Example:
+
+
+//====================================================================================
 * Nil coalescing
+/*
+ You can use nil coalescing to unwrap an optional and
+ provide a default value if there was nothing inside.
+*/
+// Example:
+let user = username(for:15) ?? "Anonymous"
+
+//====================================================================================
 * Optional chaining
+/*
+ Optional chaining let us write code to manipulate an optional,
+ but if the optional turns out to be empty the code is ignored.
+*/
+// Example:
+let beatle = names.first?.uppercased()
+
+//====================================================================================
 * Optional try
+/*
+ You can use try? to convert a throwing function into an optional
+ return value, or try! to crash if an error is thrown.
+*/
+// Example:
+if let result = try? checkPassowrd("sekrit") {
+ print("Result was \(result)")
+} else {
+ print("D'oh")
+}
+
+//====================================================================================
 * Failable initializers
+/*
+ If you need your initializer to fail when it's given bad input,
+ use init?() to make a failable initializer.
+*/
+// Example:
+init?(id: String) {
+ if id.count == 9 {
+  self.id = id
+ } else {
+  return nil
+ }
+}
+
+//====================================================================================
 * Typecasting
+/*
+ You can use typecasting to convert one type of object to another
+*/
+// Example:
+for pet in pets {
+ if let dog = pet as? Dog {
+  dog.makeNoise()
+ }
+}
+
+//====================================================================================
