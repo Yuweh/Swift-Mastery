@@ -2,6 +2,12 @@
 ### Swift Mastery Series ⚔️  [![forthebadge](http://forthebadge.com/images/badges/made-with-swift.svg)](http://forthebadge.com)
 ----
 
+Watch and check the series further here:
+
+https://www.hackingwithswift.com/sixty
+
+----
+
 ### Table of Content
 
 Swift in 60 seconds
