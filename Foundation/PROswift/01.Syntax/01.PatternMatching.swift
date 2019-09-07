@@ -74,3 +74,52 @@ here on I want to give examples of other useful pattern-matching techniques that
 well known.
 */
 
+
+
+
+//=========================================================================================
+// Matching calculated tuples
+//=========================================================================================
+// Tuples are most frequently created using static values, like this:
+let name = ("Paul", "Hudson")
+
+//=========================================================================================
+/*
+Example, consider the "fizzbuzz" test: write a function that accepts
+any number, and returns "Fizz" if the number is evenly divisible by 3, "Buzz" if it's evenly
+divisible by 5, "FizzBuzz" if its evenly divisible by 3 and 5, or the original input number in
+other cases.
+
+We can calculate a tuple to solve this problem, then pass that tuple into a switch block to
+create the correct output. Here's the code:
+*/
+
+func fizzbuzz(number number: Int) -> String {
+switch (number % 3 == 0, number % 5 == 0) {
+case (true, false):
+return "Fizz"
+case (false, true):
+return "Buzz"
+case (true, true):
+return "FizzBuzz"
+case (false, false):
+return String(number)
+}
+}
+
+//test
+print(fizzbuzz(number: 15))
+
+/*
+This approach breaks down a large input space – any number – into simple combinations of
+true and false, and we then use tuple pattern matching in the case statements to select the
+correct output.
+*/
+
+ //=========================================================================================
+ 
+ 
+ 
+ 
+ 
+ 
