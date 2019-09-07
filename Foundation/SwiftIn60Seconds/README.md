@@ -1,10 +1,8 @@
 ## PAUL HUDSON's Swift in Sixty Seconds
-### Swift Mastery Series ⚔️ 
-
-[![forthebadge](http://forthebadge.com/images/badges/made-with-swift.svg)](http://forthebadge.com)
+### Swift Mastery Series ⚔️  [![forthebadge](http://forthebadge.com/images/badges/made-with-swift.svg)](http://forthebadge.com)
 ----
 
-Table of Content
+### Table of Content
 
 Swift in 60 seconds
 1 - Simple types: Summary
