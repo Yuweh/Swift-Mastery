@@ -1,7 +1,7 @@
 ## PAUL HUDSON's Swift in Sixty Seconds
 ### Swift Mastery Series ⚔️ 
 
-[![forthebadge](http://forthebadge.com/images/badges/made-with-swift.svg)](http://forthebadge.com) [![forthebadge]
+[![forthebadge](http://forthebadge.com/images/badges/made-with-swift.svg)](http://forthebadge.com)
 ----
 
 Table of Content
