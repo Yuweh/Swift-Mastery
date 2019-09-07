@@ -6,6 +6,10 @@
 Check the series further here:
 https://www.hackingwithswift.com/store/pro-swift?source=proswift-1
 
+Buy the Pro Swift book and video course
+
+Pro Swift is the sequel to Hacking with Swift, and includes a 250-page guide to helping you write faster, more efficient Swift, accompanied by over 70 videos demonstrating each technique. If you want to dive into functional programming, learn more about MVVM, get to grips with @autoclosure and @escaping, or try your hand at protocol-oriented development, Pro Swift is for you.
+
 ----
 
 ### Table of Content
