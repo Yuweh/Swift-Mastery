@@ -49,10 +49,26 @@ and Prototype.
 
 - - -
 
-I. Fundamental Design Patterns
+
+### I. Fundamental Design Patterns
+
+Model-View-Controller Pattern 
+
+Delegation Pattern
+
+Strategy Pattern
+
+Singleton Pattern
+
+Memento Pattern
+
+Observer Pattern 
+
+Builder Pattern
 
 
-II. Intermediate Design Patterns
+### II. Intermediate Design Patterns
 
 
-III. Advanced Design Patterns
+
+### III. Advanced Design Patterns
