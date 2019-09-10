@@ -1,12 +1,12 @@
-# Hello, Design Patterns!
+## Hello, Design Patterns!
 
 - - -
 
-## Types of design patterns
+### Types of design patterns
 
 There are three main types of design patterns:
 
-## 1. Structural design pattern: 
+### 1. Structural design pattern: 
 
 Describes how objects are composed and combined to form larger structures. 
 
@@ -20,7 +20,7 @@ Model-View-ViewModel (MVVM)
 and Facade.
 
 
-## 2. Behavioral design pattern: 
+### 2. Behavioral design pattern: 
 
 Describes how objects communicate with each other. 
 
@@ -34,7 +34,7 @@ Strategy
 and Observer.
 
 
-## 3. Creational design pattern: 
+### 3. Creational design pattern: 
 
 Describes how to create or instantiate objects. 
 
