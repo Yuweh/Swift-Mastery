@@ -118,7 +118,22 @@ correct output.
 
  //=========================================================================================
  
- 
+ //=========================================================================================
+// LOOPS
+//=========================================================================================
+
+// Basic Ex:
+let twostraws = (name: "twostraws", password: "fr0st1es")
+let bilbo = (name: "bilbo", password: "bagg1n5")
+let taylor = (name: "taylor", password: "fr0st1es")
+
+let users = [twostraws, bilbo, taylor]
+
+for user in users {
+print(user.name)
+}
+
+// 
  
  
  
