@@ -133,8 +133,27 @@ for user in users {
 print(user.name)
 }
 
-// 
+/*
+That creates an array of tuples, then loops over each one and prints its name value.
+Just like the switch blocks we looked at earlier, we can use case with a tuple to match
+specific values inside the tuples. Add this code below the previous loop:
+*/ 
  
+//=========================================================================================
+// Matching optionals
+//=========================================================================================
  
- 
- 
+ // sample:
+let name: String? = "twostraws"
+let password: String? = "fr0st1es"
+
+switch (name, password) {
+case let (.Some(name), .Some(password)):
+print("Hello, \(name)")
+case let (.Some(name), .None):
+print("Please enter a password.")
+default:
+print("Who are you?")
+}
+
+
