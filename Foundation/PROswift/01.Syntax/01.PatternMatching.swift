@@ -143,6 +143,12 @@ specific values inside the tuples. Add this code below the previous loop:
 // Matching optionals
 //=========================================================================================
  
+/*
+Swift has two ways of matching optionals, and you're likely to meet both. First up is
+using .Some and .None to match "has a value" and "has no value", and in the code below
+this is used to check for values and bind them to local constants:
+*/
+
  // sample:
 let name: String? = "twostraws"
 let password: String? = "fr0st1es"
@@ -155,5 +161,139 @@ print("Please enter a password.")
 default:
 print("Who are you?")
 }
+
+// Matching ranges
+/*
+That produces identical results to the switch block while using similar syntax, but I'm not a
+big fan of this approach. The reason for my dislike is simple readability: I don't think "if case
+0 up to 18 equals age" makes sense if you don't already know what it means. A much nicer
+approach is to use the pattern match operator, ~=, which would look like this:
+*/
+
+let age = 40
+
+//sample
+if 0 ..< 18 ~= age {
+print("You have the energy and time, but not the money")
+} else if 18 ..< 70 ~= age {
+print("You have the energy and money, but not the time")
+} else {
+print("You have the time and money, but not the energy")
+}
+
+//alternative 
+//(0 ..< 18).contains(age)
+
+//combine this range matching into our existing tuple matching code, like this:
+let user = (name: "twostraws", password: "fr0st1es", age: 36)
+
+switch user {
+case let (name, _, 0 ..< 18):
+print("\(name) has the energy and time, but no money")
+case let (name, _, 18 ..< 70):
+print("\(name) has the money and energy, but no time")
+case let (name, _, _):
+print("\(name) has the time and money, but no energy")
+}
+
+//=========================================================================================
+//Matching enums and associated values
+//=========================================================================================
+
+enum WeatherType {
+case Cloudy(coverage: Int)
+case Sunny
+case Windy
+}
+
+let today = WeatherType.Cloudy(coverage: 100)
+
+switch today {
+case .Cloudy(let coverage) where coverage == 0:
+print("You must live in Death Valley")
+case .Cloudy(let coverage) where (1...99).contains(coverage):
+print("It's cloudy with \(coverage)% coverage")
+case .Cloudy(let coverage) where coverage == 100:
+print("You must live in the UK")
+case .Windy:
+print("It's windy")
+default:
+print("It's sunny")
+}
+
+
+// is and where usage:
+
+/*
+You should already know the is keyword for matching, but you might not know that it can be
+used as pattern matching in loops and switch blocks.
+
+*/
+
+let view: AnyObject = UIButton()
+
+switch view {
+case is UIButton:
+print("Found a button")
+case is UILabel:
+print("Found a label")
+case is UISwitch:
+print("Found a switch")
+case is UIView:
+print("Found a view")
+default:
+print("Found something else")
+}
+
+// where
+
+/*
+
+*/
+for label in view.subviews where label is UILabel {
+print("Found a label with frame \(label.frame)")
+}
+
+let celebrities = ["Michael Jackson", "Taylor Swift", "Michael
+Caine", "Adele Adkins", "Michael Jordan"]
+
+for name in celebrities where !name.hasPrefix("Michael") {
+print(name)
+}
+
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+
+                   
+                   
+                   
+                   
+                   
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
