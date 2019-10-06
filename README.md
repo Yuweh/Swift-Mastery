@@ -40,7 +40,7 @@ resource: https://www.youtube.com/watch?v=jZ_BzV0DA58
 
 10. Go to Meet Ups
 
-*-- the following our for starters
+*-- the following are for starters
 
 11. Portfolio Website
 
