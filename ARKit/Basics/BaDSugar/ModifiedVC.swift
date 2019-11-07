@@ -6,6 +6,8 @@
 //  Copyright © 2019 Xi Apps, Inc. All rights reserved.
 //
 
+//Tutorial from: https://medium.com/libertyit
+
 import UIKit
 import SceneKit
 import ARKit
@@ -19,17 +21,23 @@ struct CollisionCategory: OptionSet {
 }
 
 class BadSugarGameViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelegate {
-
+    
     //MARK: - variables
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
     var score = 0 //used to store the score
-    var seconds = 30 //to store how many sceonds the game is played for
+    var seconds = 60 //to store how many sceonds the game is played for
     var timer = Timer() //timer
     var player: AVAudioPlayer? // Sound Player
     var isTimerRunning = false //to keep track of whether the timer is on
+    
+    // for sugarCubes
+    var minHeight : CGFloat = 0.5
+    var maxHeight : CGFloat = 0.9
+    var minDispersal : CGFloat = -4
+    var maxDispersal : CGFloat = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +47,15 @@ class BadSugarGameViewController: UIViewController, ARSCNViewDelegate, SCNPhysic
         
         //set the physics delegate
         sceneView.scene.physicsWorld.contactDelegate = self
-
+        
+        //add objects to shoot at
+        addTargetNodes()
+        
+        //play background music
+        playBackgroundMusic()
+        
+        //start tinmer
+        runTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,9 +77,9 @@ class BadSugarGameViewController: UIViewController, ARSCNViewDelegate, SCNPhysic
     
     //shooter button
     @IBAction func onAxeButton(_ sender: Any) {
-        
+        self.fireMissile()
     }
-
+    
 }
 
 // MARK: - timer
@@ -80,15 +96,15 @@ extension BadSugarGameViewController {
             gameOver()
         }else{
             seconds -= 1
-            timerLabel.text = "\(seconds)"
+            timerLabel.text = "\(seconds) s"
         }
     }
     
     //resets the timer
     func resetTimer(){
         timer.invalidate()
-        seconds = 30
-        timerLabel.text = "\(seconds)"
+        seconds = 60
+        timerLabel.text = "\(seconds) s"
     }
     
     // MARK: - game over
@@ -106,27 +122,20 @@ extension BadSugarGameViewController {
 extension BadSugarGameViewController {
     
     //creates banana or axe node and 'fires' it
-    func fireMissile(type : String){
+    func fireMissile() {
         var node = SCNNode()
         //create node
-        node = createMissile(type: type)
+        node = createMissile()
         
         //get the users position and direction
         let (direction, position) = self.getUserVector()
         node.position = position
         var nodeDirection = SCNVector3()
-        switch type {
-        case "banana":
-            nodeDirection  = SCNVector3(direction.x*4,direction.y*4,direction.z*4)
-            node.physicsBody?.applyForce(nodeDirection, at: SCNVector3(0.1,0,0), asImpulse: true)
-            playSound(sound: "monkey", format: "mp3")
-        case "axe":
-            nodeDirection  = SCNVector3(direction.x*4,direction.y*4,direction.z*4)
-            node.physicsBody?.applyForce(SCNVector3(direction.x,direction.y,direction.z), at: SCNVector3(0,0,0.1), asImpulse: true)
-            playSound(sound: "rooster", format: "mp3")
-        default:
-            nodeDirection = direction
-        }
+        
+        nodeDirection  = SCNVector3(direction.x*4,direction.y*4,direction.z*4)
+        node.physicsBody?.applyForce(SCNVector3(direction.x,direction.y,direction.z), at: SCNVector3(0,0,0.1), asImpulse: true)
+        playSound(sound: "torpedo", format: "mp3")
+        
         
         //move node
         node.physicsBody?.applyForce(nodeDirection , asImpulse: true)
@@ -136,24 +145,13 @@ extension BadSugarGameViewController {
     }
     
     //creates nodes
-    func createMissile(type : String)->SCNNode{
-        var node = SCNNode()
+    func createMissile()->SCNNode{
+        var node = Bullet()  //SCNNode()
         
-        //using case statement to allow variations of scale and rotations
-        switch type {
-        case "banana":
-            let scene = SCNScene(named: "art.scnassets/banana.dae")
-            node = (scene?.rootNode.childNode(withName: "Cube_001", recursively: true)!)!
-            node.scale = SCNVector3(0.2,0.2,0.2)
-            node.name = "banana"
-        case "axe":
-            let scene = SCNScene(named: "art.scnassets/axe.dae")
-            node = (scene?.rootNode.childNode(withName: "axe", recursively: true)!)!
-            node.scale = SCNVector3(0.3,0.3,0.3)
-            node.name = "bathtub"
-        default:
-            node = SCNNode()
-        }
+//        let scene = SCNScene(named: "art.scnassets/axe.dae")
+//        node = (scene?.rootNode.childNode(withName: "axe", recursively: true)!)!
+//        node.scale = SCNVector3(0.3,0.3,0.3)
+        node.name = "bathtub"
         
         //the physics body governs how the object interacts with other objects and its environment
         node.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
@@ -188,15 +186,16 @@ extension BadSugarGameViewController {
             var node = SCNNode()
             
             if (index > 9) && (index % 10 == 0) {
-                let scene = SCNScene(named: "art.scnassets/mouthshark.dae")
-                node = (scene?.rootNode.childNode(withName: "shark", recursively: true)!)!
-                node.scale = SCNVector3(0.3,0.3,0.3)
-                node.name = "shark"
-            }else{
-                let scene = SCNScene(named: "art.scnassets/bath.dae")
+                let scene = SCNScene(named: "art.scnassets/banana.dae")
                 node = (scene?.rootNode.childNode(withName: "Cube_001", recursively: true)!)!
-                node.scale = SCNVector3(0.02,0.02,0.02)
-                node.name = "bath"
+                node.scale = SCNVector3(0.2,0.2,0.2)
+                node.name = "banana"
+            }else{
+                let s = generateRandomSize()
+                let cube = SCNBox(width: s, height: s, length: s, chamferRadius: 0.03)
+                cube.materials.first?.diffuse.contents = generateRandomColor()
+                node = SCNNode(geometry: cube)
+                node.name = "cube"
             }
             
             node.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
@@ -225,6 +224,25 @@ extension BadSugarGameViewController {
     }
 }
 
+extension BadSugarGameViewController {
+    private func generateRandomVector() -> SCNVector3 {
+        return SCNVector3(CGFloat.random(in: minDispersal ... maxDispersal),
+                          CGFloat.random(in: minDispersal ... maxDispersal),
+                          CGFloat.random(in: minDispersal ... maxDispersal))
+    }
+    
+    private func generateRandomColor() -> UIColor {
+        return UIColor(red: CGFloat.random(in: 0 ... 1),
+                       green: CGFloat.random(in: 0 ... 1),
+                       blue: CGFloat.random(in: 0 ... 1),
+                       alpha: CGFloat.random(in: 0.5 ... 1))
+    }
+    
+    private func generateRandomSize() -> CGFloat {
+        return CGFloat.random(in: minHeight ... maxHeight)
+    }
+}
+
 
 // MARK: - Contact Delegate
 extension BadSugarGameViewController {
@@ -235,7 +253,7 @@ extension BadSugarGameViewController {
         if contact.nodeA.physicsBody?.categoryBitMask == CollisionCategory.targetCategory.rawValue
             || contact.nodeB.physicsBody?.categoryBitMask == CollisionCategory.targetCategory.rawValue {
             
-            if (contact.nodeA.name! == "shark" || contact.nodeB.name! == "shark") {
+            if (contact.nodeA.name! == "banana" || contact.nodeB.name! == "banana") {
                 score+=5
             }else{
                 score+=1
