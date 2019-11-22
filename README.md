@@ -14,8 +14,68 @@ Swift Skill Tree for iOS Mobile App Development
 <img src="https://github.com/ReactiveX/RxSwift/blob/master/assets/Rx_Logo_M.png" alt="Miss Electric Eel 2016" width="36" height="36"> RxSwift: ReactiveX for Swift [Needs Refresher] _^
 
 ----
+Checklist to be a Senior / Lead iOS Software Engineer
+
+## Skills
+
+✅ Hands-on experience writing high quality unit and integration tests.
+
+✅ Excellent problem solving, critical thinking and communication skills.
+
+✅ Familiar with functional and/or reactive programming.
+
+✅ Experience building complex applications for the iPhone or iPad using Swift and/or Obj-c.
+
+✅ Good knowledge of Objective-C.
+
+✅ Experience with multithreaded programming and proper state management.
+
+✅ Experience with resource optimization like Data-usage, Battery consumption … etc.
+
+✅ Full understanding of the iOS Framework internals (e.g. Core-graphics, Core-animation).
+
+✅ Experience with Apple Approval & Distribution Process, Ad-Hoc & Enterprise Distribution.
+
+✅ Have published app on the AppStore.
+
+✅ Knowledge of iOS SDK performance tools and optimisation techniques.
+
+✅ Experience with CI/CD and Automation tools
+
+✅ Experience working with A/B testing tools.
+
+✅ Experience with Fastlane.
+
+✅ Experience building iOS Frameworks.
+
+✅ Experience designing clean and maintainable APIs.
+
+✅ Experience with UI-Tests using XCode (XCUITests).
+
+✅ Open-source contributions.
+
+✅ Contributions on knowledge exchange websites like StackOverflow.
+
+✅ Experience with Bitrise as well as Travis CI.
+
+✅ Experience with Firebase.
+
+✅ Develop new features for our iOS products.
+
+✅ Maintain and improve our ios CI/CD pipeline.
+
+✅ Write and maintain UI Tests as well as the UI-Tests framework.
+
+✅ Optimize UI for performance.
+
+✅ Monitor and understand customer behavior.
+
+✅ Collaborate with back end developers, designers, product owners to constantly improve customer experience within iOS platform.
+
+✅ Build reusable iOS software components for interfacing with the multiple entities and Apps in our platforms.
 
 
+----
 #### 37 Tips for Devs: 
 
 resource: https://www.youtube.com/watch?v=jZ_BzV0DA58
