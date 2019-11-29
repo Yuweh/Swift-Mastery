@@ -5,6 +5,15 @@
 
 Testing individual components or functionality in a piece of software to ensure that it works the way it should.
 
+## Test Driven Development (TDD)
+
+Write test simulating how code should work
+
+Test should fail initially
+
+Write code to make test pass
+
+Refactor so code/test are clean and functional
 
 ## Why Unit Testing is important?
 
@@ -37,16 +46,16 @@ Testing Forces You to Slow Down and Think.
 
 Tests Reduce Fear One of the biggest fears that programmers encounter is making a change to a piece of code and not knowing what is going to break.
 
+## Why Unit Testing is important?
 
-## Test Driven Development (TDD)
+• Do write tests for code that can’t be caught in an automated fashion otherwise. This includes code in your classes’ methods, custom getters and setters and most anything else you write yourself.
 
-Write test simulating how code should work
+• Don’t write tests for generated code. For example, it’s not worthwhile to write tests for generated getters and setters. Swift does this very well, and you can trust it works.
 
-Test should fail initially
+• Don’t write tests for issues that can be caught by the compiler. If the tested issue would generate an error or warning, Xcode will catch it for you.
 
-Write code to make test pass
+• Don’t write tests for dependency code, such as first- or third-party frameworks your app uses. The framework authors are responsible for writing those tests. For example, you shouldn’t write tests for UIKit classes because UIKit developers are responsible for writing these. However, you should write tests for your custom subclasses thereof: This is your custom code, so you’re responsible for writing the tests.
 
-Refactor so code/test are clean and functional
 
 
 ## What makes a good Unit Test?
