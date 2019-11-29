@@ -34,28 +34,29 @@ class CashRegisterTests: XCTestCase {
     super.tearDown()
   }
   
+  // Attempt to instantiate a new instance of CashRegister, which you pass into XCTAssertNil. This is a test expression that asserts whatever passed to it is not nil. If it actually is nil, the test will be marked as failed.
   func testInitAvailableFunds_setsAvailableFunds() {
     XCTAssertEqual(sut.availableFunds, availableFunds)
   }
   
   func testAddItem_oneItem_addsCostToTransactionTotal() {
-    // when
+    // when - When a certain action happens...
     sut.addItem(itemCost)
     
-    // then
+    // then - Then an expected result occurs.
     XCTAssertEqual(sut.transactionTotal, itemCost)
   }
   
   func testAddItem_twoItems_addsCostsToTransactionTotal() {
-    // given
+    // give - Given a certain condition...
     let itemCost2 = Decimal(20)
     let expectedTotal = itemCost + itemCost2
     
-    // when
+    // when - When a certain action happens...
     sut.addItem(itemCost)
     sut.addItem(itemCost2)
     
-    // then
+    // then - Then an expected result occurs.
     XCTAssertEqual(sut.transactionTotal, expectedTotal)
   }
 }
