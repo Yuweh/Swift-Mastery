@@ -56,3 +56,14 @@ public func cyclicRotation(_ A : inout [Int], _ K : Int) -> [Int] {
 var sampleArray = [3, 8, 9, 7, 6]
 let setIndex = 3
 let result = cyclicRotation(&sampleArray, setIndex)
+
+/*
+prints
+initialArray:[3, 8, 9, 7, 6]
+[6, 3, 8, 9, 7]
+[7, 6, 3, 8, 9]
+[9, 7, 6, 3, 8]
+finalArray:[9, 7, 6, 3, 8]
+
+
+*/
