@@ -128,3 +128,42 @@ workingArray:[9, 7, 6, 3, 8]
 finalArray:[9, 7, 6, 3, 8]
 
 */
+
+//solution 3
+public func cyclicRotation(_ input: [Int], _ k: Int) -> [Int] {
+    var newArray = input
+    for (i,element) in input.enumerated(){
+        print("i:\(i), element:\(element)")
+        let newIndex = (i + k) % input.count
+        print("newIndex:\(newIndex)")
+        newArray[newIndex] = element
+        print("workingArray:\(newArray)")
+    }
+    return newArray
+}
+
+var sampleArray = [3, 8, 9, 7, 6]
+let setIndex = 3
+let result = cyclicRotation(sampleArray, setIndex)
+
+/*
+
+i:0, element:3
+newIndex:3
+workingArray:[3, 8, 9, 3, 6]
+i:1, element:8
+newIndex:4
+workingArray:[3, 8, 9, 3, 8]
+i:2, element:9
+newIndex:0
+workingArray:[9, 8, 9, 3, 8]
+i:3, element:7
+newIndex:1
+workingArray:[9, 7, 9, 3, 8]
+i:4, element:6
+newIndex:2
+workingArray:[9, 7, 6, 3, 8]
+
+*/
+
+
