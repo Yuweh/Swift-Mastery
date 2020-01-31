@@ -19,5 +19,27 @@ N is an integer within the range [1..2,147,483,647].
 */
 
 
+func binaryGap(_number: Int)-> Int{
+    // converts given in to binaryNumber
+    let binaryNumber = String(_number, radix: 2, uppercase: true)
+    var newElement = 0
+    var finalElement = 0
+    for element in binaryNumber{
+        if element != "1" {
+            newElement = newElement + 1
+        } else {
+            if newElement > finalElement {
+                finalElement = newElement
+            }
+            newElement = 0
+        }
+    }
+    return finalElement
+}
+
+let N = 1041
+let result = binaryGap(_number: N)
+
+
 
 
