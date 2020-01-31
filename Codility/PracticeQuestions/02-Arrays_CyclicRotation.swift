@@ -38,3 +38,21 @@ each element of array A is an integer within the range [−1,000..1,000].
 In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
 
 */
+
+public func cyclicRotation(_ A : inout [Int], _ K : Int) -> [Int] {
+    print("initialArray:\(A)")
+    if A.count == 0 {
+        return A
+    }
+    
+    for _ in 0..<K {
+        A.insert(A.removeLast(), at: 0)
+        print(A)
+    }
+    print("finalArray:\(A)")
+    return A
+}
+
+var sampleArray = [3, 8, 9, 7, 6]
+let setIndex = 3
+let result = cyclicRotation(&sampleArray, setIndex)
