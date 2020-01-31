@@ -67,3 +67,64 @@ finalArray:[9, 7, 6, 3, 8]
 
 
 */
+
+
+//2nd solution
+public func cyclicRotation(_ A : inout [Int], _ K : Int) -> [Int] {
+    print("initialArray:\(A)")
+    if A.count == 0 {
+        return A
+    }
+    
+    let size = A.count
+    print("size:\(size)")
+    
+    var ret =  Array(repeating: 0, count: size)
+    print("intial ret:\(ret)")
+    
+    for x in 0..<size {
+        print("x:\(x),K:\(K), and size:\(size)")
+        print ("inProgress:\((x + K) % size)")
+        print("A[x]:\(A[x])")
+        ret[(x + K) % size] = A[x]
+        print("workingArray:\(ret)")
+    }
+    
+    print("finalArray:\(ret)")
+    return ret
+}
+
+var sampleArray = [3, 8, 9, 7, 6]
+let setIndex = 3
+let result = cyclicRotation(&sampleArray, setIndex)
+
+
+/*
+print
+
+initialArray:[3, 8, 9, 7, 6]
+size:5
+intial ret:[0, 0, 0, 0, 0]
+x:0,K:3, and size:5
+inProgress:3
+A[x]:3
+workingArray:[0, 0, 0, 3, 0]
+x:1,K:3, and size:5
+inProgress:4
+A[x]:8
+workingArray:[0, 0, 0, 3, 8]
+x:2,K:3, and size:5
+inProgress:0
+A[x]:9
+workingArray:[9, 0, 0, 3, 8]
+x:3,K:3, and size:5
+inProgress:1
+A[x]:7
+workingArray:[9, 7, 0, 3, 8]
+x:4,K:3, and size:5
+inProgress:2
+A[x]:6
+workingArray:[9, 7, 6, 3, 8]
+finalArray:[9, 7, 6, 3, 8]
+
+*/
