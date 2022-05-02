@@ -3,6 +3,20 @@ Swift Skill Tree for iOS Mobile App Development
 
 ----
 
+Hey! If you are starting your journey as an iOS Developer
+check my Medium Article and get a thing or two
+
+How to become an iOS App Developer in 2022
+https://medium.com/@francisb.xiapps/how-to-become-an-ios-developer-in-2022-a33aecae3160
+
+How to Change Careers and be a Software Developer in 2022, part 1
+https://medium.com/@francisb.xiapps/how-to-change-careers-and-be-a-software-developer-in-2022-part-1-3d3d6316516c
+
+Cheers!🥂
+
+
+----
+
 
 #### Recent Updates: 
 
