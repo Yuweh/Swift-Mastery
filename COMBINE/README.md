@@ -22,9 +22,6 @@ Topics include:
 - Throttling publisher data
 - Leveraging advanced operators
 
-------------------------------------------------------------------------------------------------------
-📋 Learning Combine with Swift -  CONTENTS
-------------------------------------------------------------------------------------------------------
 Publish and subscribe to data with subjects.mp4
 01 - Power up your app with Combine.mp4
 02 - What you should know.mp4
@@ -33,10 +30,80 @@ Publish and subscribe to data with subjects.mp4
 05 - Overview of SwiftUI.mp4
 06 - Advantages of Combine.mp4
 07 - Understand the Combine life cycle.mp4
+- Subscriber Orchestrates the Workflow
+	- Subscriber-driven framework
+	- Through backpressure, subscriber decides how much to ingest
+	- All subscribers conform to Cancelable protocol
 08 - Transmit data with publishers.mp4
+- The Publisher Protocol
+	- Contract to transmit sequence of values
+	- Has two possible outcomes: output and failure
+	- Values transmitted over time
+	- Values only transmitted if one or more subscribers
+	- Can also terminate with an explicit completion signal
+- Failure could occur in either side, Published
+- Suggested reading developer.apple.com/documentation/combine
+- Convenience Publishers
+	- class Future
+		- produces a single value and then completes or fails
+	- struct Just
+		- then Just publisher emits an output to each of the subscribers, just once and then terminates
+	- struct Deferred
+		- not yet defined
+	- struct Empty
+		- not yet defined
+	- struct Fail
+		- not yet defined
+	- struct Record
+		- not yet defined
 09 - Manipulate data with operators.mp4
+- Operators: Combine's Business Logic
+	- Play a central role in the Combine framework ecosystem
+	- Filter and manipulate values from an upstream publisher
+	- Each operator returns a new publisher
+	- Can be chained to add processing steps
+	- Perform error handling, buffering,  prrefetches
+- Operator Examples
+	- Mapping
+		- scan, map, setFailureType
+	- Filtering
+		- removeDuplicates, filter, replace
+	- Reducing
+		- collect, reduce, ignoreOutput
+	- Mathematic
+		- comparison, count
+	- Combining
+		- merge, zip, combineLatest
+	- handlingErrors
+		- catch, tryCatch, asserNoFailure
+	- Timing
+		- debounce delay, timeout, throttle
+	- Encoding and Decoding
+		-  
 10 - Consume data with subscribers.mp4
+	- The Subscriber Protocol
+		- Contract to receive sequence of values
+		- Has two possible outcomes, input and failure
+		- Continues to receive as publisher transmits (demand)
+		- sink and .assign for receiving values
+		- Conform to AnyCancellable to cancel
+11 - Publish and subscribe to data with subjects.mp4
+	- The Subject Protocol
+		- A publisher that exposes a method for outside callers to publish elements
+		- Common for bridging code from the old imperative world into the modern, new Combine world
+		- .send() method used to emit select values to one or more subscribers
+		- As an aggregator for multiple subscribers, via subscriber demands signaling unlimited demand
+		- currentValueSubject persists initial state values for subscribers, unlike passthroughSubject
+		- Create publishers from objects which conform to ObservableObject
 12 - Publish data once with Future and Just.mp4
+	- Just
+		- Omits a single result before termination or fail
+		- Wrap a primitive value into a publisher
+	- Future
+		- Results in single output or failure
+		- Wraps an asynchronous call
+		- Commonly used to make a single request/response
+		- Promise  is a closure tyope that accepts a result consisting of a single value from a future, or failure
 13 - Challenge Create a simple Combine data stream.mp4
 14 - Solution Create a simple Combine data stream.mp4
 15 - Call REST APIs with DataTaskPublisher.mp4
