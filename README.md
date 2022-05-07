@@ -1,6 +1,7 @@
 ## Swift-Mastery ⚔️ 
 Swift Skill Tree for iOS Mobile App Development
 
+
 ----
 
 Hey! If you are starting your journey as an iOS Developer
@@ -13,6 +14,7 @@ How to Change Careers and be a Software Developer in 2022, part 1
 https://medium.com/@francisb.xiapps/how-to-change-careers-and-be-a-software-developer-in-2022-part-1-3d3d6316516c
 
 Cheers!🥂
+
 
 
 ----
